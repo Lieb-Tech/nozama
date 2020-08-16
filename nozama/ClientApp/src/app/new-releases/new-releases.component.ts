@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-releases',
@@ -7,11 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewReleasesComponent {
   public newReleases: Book[];
-
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, private router: Router, @Inject('BASE_URL') baseUrl: string) {
     http.get<NewReleasesResult >(baseUrl + 'newReleases').subscribe(result => {     
-      this.newReleases = result.newReleases;      
+      this.newReleases = result.newReleases;
     }, error => console.error(error));
+  }
+  clicked(event: number) {
+    this.router.navigate([`fetch-data`, event]);
   }
 }
 
@@ -19,13 +22,9 @@ interface NewReleasesResult {
   newReleases: Book[];
 };
 
-class Book {
+interface Book {
   bookTitle: string;
-  bookid: number;
+  bookID: number;
   authorID: number;
-  authorName: string;
-
-  clicked2(event: any) {
-    alert(event);
-  };
+  authorName: string; 
 }

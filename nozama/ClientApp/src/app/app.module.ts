@@ -28,6 +28,7 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'fetch-data/:id', component: FetchDataComponent },
       { path: 'new-releases', component: NewReleasesComponent },
     ])
   ],

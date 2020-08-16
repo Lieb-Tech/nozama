@@ -13,7 +13,7 @@
     <tr *ngFor="let book of newReleases">
       <td>{{ book.bookTitle }}</td>
       <td>{{ book.authorName }}</td>
-      <td><button (click)="clicked">Details</button></td>
+      <td><button (click)="clicked(book.bookID)">Details</button></td>
     </tr>
   </tbody>
 </table>
