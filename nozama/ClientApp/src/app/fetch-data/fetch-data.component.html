@@ -1,0 +1,22 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!book"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="book">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Synopsis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ book.title }}</td>
+      <td>{{ book.authorName }}</td>
+      <td>{{ book.synopsis}}</td>
+    </tr>
+  </tbody>
+</table>
