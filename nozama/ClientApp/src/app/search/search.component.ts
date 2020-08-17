@@ -31,12 +31,16 @@ export class SearchComponent {
     this.searchText = "";
   }
 
-  showDropdown(): void {
+  showDropdown(): void { 
     const vals = this.history.slice();
     this.dropDownVisible = (vals.length > 0);
+    console.log("show: " + this.dropDownVisible );
   }
 
-  hideDropdown(): void {    
-    this.dropDownVisible = false;
+  hideDropdown(): void {
+    setTimeout(() => {
+      console.log("hide");
+      this.dropDownVisible = false;
+    }, 200);
   } 
 }

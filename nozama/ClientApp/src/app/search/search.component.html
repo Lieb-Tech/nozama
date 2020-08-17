@@ -2,10 +2,10 @@ Search: <input type="text" [(ngModel)]="searchText" (focus)="showDropdown()" (bl
 <button (click)="doSearch()">Go!</button>
 
 <div *ngIf="dropDownVisible" class="dropDown">  
-  <div  style="overflow-y:scroll;height:100%;width:100%;">
+  <div  style="height:100%;width:100%;">
     Recent Searches:
     <ul>
-      <li *ngFor="let entry of history" class='dropDownItem' (click)="setSearchText(entry)">{{entry}}</li>
+      <li *ngFor="let hist of history" class='dropDownItem' (click)="setSearchText(hist)">{{hist}}</li>
     </ul>
   </div>
 </div>

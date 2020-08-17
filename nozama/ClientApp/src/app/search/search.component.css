@@ -1,9 +1,13 @@
 .dropDown {
   position: absolute;
   z-index: 10;
-  background-color: silver;
+  background-color: #eeeeee;
   height: 200px;
   width: 300px;
+  border-radius: 10px;
+  border: solid 1px black;
+  padding: 5px;
+  margin: 2px;
 }
 
 .dropDownItem {
