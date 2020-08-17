@@ -1,0 +1,14 @@
+.dropDown {
+  position: absolute;
+  z-index: 10;
+  background-color: silver;
+  height: 200px;
+  width: 300px;
+}
+
+.dropDownItem {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}

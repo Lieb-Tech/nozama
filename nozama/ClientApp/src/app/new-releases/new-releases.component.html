@@ -2,18 +2,21 @@
 
 <p *ngIf="!newReleases"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="newReleases">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-    </tr>
-  </thead>
-  <tbody >
-    <tr *ngFor="let book of newReleases">
-      <td>{{ book.bookTitle }}</td>
-      <td>{{ book.authorName }}</td>
-      <td><button (click)="clicked(book.bookID)">Details</button></td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="newReleases">
+  
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of newReleases">
+        <td>{{ book.bookTitle }}</td>
+        <td>{{ book.authorName }}</td>
+        <td><button (click)="clicked(book.bookID)">Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

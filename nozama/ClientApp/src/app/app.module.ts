@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NewReleasesComponent } from './new-releases/new-releases.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    NewReleasesComponent
+    NewReleasesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
