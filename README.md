@@ -19,23 +19,37 @@ grow to offer products from different categories.
 
 A sample controller:
 
-	[HttpGet("/Book/{ID}")]
-	public GetBookResponse GetBook(long ID)
-	{
-		// log it
-		_logger.LogInformation("GetBook");
-		// get it           
-		var book = _service.Factory<BookService.BookByIDAction>().BookByID(ID);
-		// transform it
-		var model = _mapper.Map<GetBookModel>(book);
-		// return it
-		return new GetBookResponse()
-		{
-			Book = model
-		};
-	}
+    [ApiController]
+    public class Get : Controller
+    {
+        private readonly ILogger<Get> _logger;
+        private readonly IMapper _mapper;
+        private readonly IBookService _service;
 
+        public Get(ILogger<Get> logger, IMapper mapper, IBookService service)
+        {
+            _logger = logger;
+            _mapper = mapper;
+            _service = service;
+        }
 
+        [HttpGet("/Book/{ID}")]
+        public GetBookResponse GetBook(long ID)
+        {
+            // log it
+            _logger.LogInformation("GetBook");
+            // get it           
+            var book = _service.Factory<BookService.BookByIDAction>().BookByID(ID);
+            // transform it
+            var model = _mapper.Map<GetBookModel>(book);
+            // return it
+            return new GetBookResponse()
+            {
+                Book = model
+            };
+        }
+    }
+    
 ## Technologies:
 - Dapper			- DB to POCO mapping
 - AutoMapper		- POCO to POCO mapping/projection
