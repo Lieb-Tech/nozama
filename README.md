@@ -17,6 +17,25 @@ Not only that, these traditional massive controllers, go against SOLID principal
 To try out some ideas on how address and streamline these situations, I created a fictious book selling site. It will start with some basic book functionality, and 
 grow to offer products from different categories.
 
+A sample controller:
+
+	[HttpGet("/Book/{ID}")]
+	public GetBookResponse GetBook(long ID)
+	{
+		// log it
+		_logger.LogInformation("GetBook");
+		// get it           
+		var book = _service.Factory<BookService.BookByIDAction>().BookByID(ID);
+		// transform it
+		var model = _mapper.Map<GetBookModel>(book);
+		// return it
+		return new GetBookResponse()
+		{
+			Book = model
+		};
+	}
+
+
 ## Technologies:
 - Dapper			- DB to POCO mapping
 - AutoMapper		- POCO to POCO mapping/projection
